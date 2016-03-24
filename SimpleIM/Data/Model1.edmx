@@ -1,0 +1,976 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SimpleIM_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SimpleIM_ModelStoreContainer">
+    <EntitySet Name="C__MigrationHistory" EntityType="SimpleIM_Model.Store.C__MigrationHistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetRoles" EntityType="SimpleIM_Model.Store.AspNetRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserClaims" EntityType="SimpleIM_Model.Store.AspNetUserClaims" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserLogins" EntityType="SimpleIM_Model.Store.AspNetUserLogins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUsers" EntityType="SimpleIM_Model.Store.AspNetUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DepartmentSet" EntityType="SimpleIM_Model.Store.DepartmentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeeSet" EntityType="SimpleIM_Model.Store.EmployeeSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContactInformationSet" EntityType="SimpleIM_Model.Store.ContactInformationSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LocationSet" EntityType="SimpleIM_Model.Store.LocationSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompanySet" EntityType="SimpleIM_Model.Store.CompanySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoomSet" EntityType="SimpleIM_Model.Store.RoomSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TaskSet" EntityType="SimpleIM_Model.Store.TaskSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InformationSystemSet" EntityType="SimpleIM_Model.Store.InformationSystemSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventSet" EntityType="SimpleIM_Model.Store.EventSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Positions" EntityType="SimpleIM_Model.Store.Positions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserRoles" EntityType="SimpleIM_Model.Store.AspNetUserRoles" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="SimpleIM_Model.Store.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="SimpleIM_Model.Store.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles_AspNetRoles" Association="SimpleIM_Model.Store.FK_AspNetUserRoles_AspNetRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles_AspNetUsers" Association="SimpleIM_Model.Store.FK_AspNetUserRoles_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="LocationsEmployees" Association="SimpleIM_Model.Store.LocationsEmployees">
+      <End Role="Locations" EntitySet="LocationSet" />
+      <End Role="Employees" EntitySet="EmployeeSet" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeesRooms" Association="SimpleIM_Model.Store.EmployeesRooms">
+      <End Role="Employees" EntitySet="EmployeeSet" />
+      <End Role="Rooms" EntitySet="RoomSet" />
+    </AssociationSet>
+    <AssociationSet Name="LocationsRooms" Association="SimpleIM_Model.Store.LocationsRooms">
+      <End Role="Locations" EntitySet="LocationSet" />
+      <End Role="Rooms" EntitySet="RoomSet" />
+    </AssociationSet>
+    <AssociationSet Name="CompaniesEmployees" Association="SimpleIM_Model.Store.CompaniesEmployees">
+      <End Role="Companies" EntitySet="CompanySet" />
+      <End Role="Employees" EntitySet="EmployeeSet" />
+    </AssociationSet>
+    <AssociationSet Name="DepartmentsEmployees" Association="SimpleIM_Model.Store.DepartmentsEmployees">
+      <End Role="Departments" EntitySet="DepartmentSet" />
+      <End Role="Employees" EntitySet="EmployeeSet" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeContactInformation" Association="SimpleIM_Model.Store.EmployeeContactInformation">
+      <End Role="Employee" EntitySet="EmployeeSet" />
+      <End Role="ContactInformation" EntitySet="ContactInformationSet" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeePosition" Association="SimpleIM_Model.Store.EmployeePosition">
+      <End Role="Employee" EntitySet="EmployeeSet" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="TaskEvent" Association="SimpleIM_Model.Store.TaskEvent">
+      <End Role="Task" EntitySet="TaskSet" />
+      <End Role="Event" EntitySet="EventSet" />
+    </AssociationSet>
+    <AssociationSet Name="InformationSystemTask" Association="SimpleIM_Model.Store.InformationSystemTask">
+      <End Role="InformationSystem" EntitySet="InformationSystemSet" />
+      <End Role="Task" EntitySet="TaskSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="ContextKey" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ClaimType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ProviderKey" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" Nullable="true" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="DepartmentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentId" Type="int" Nullable="true" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Image" Type="tinyint" Nullable="true" />
+    <Property Name="FName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SSName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateOfBirth" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Locations_Id" Type="int" Nullable="false" />
+    <Property Name="Rooms_Id" Type="int" Nullable="true" />
+    <Property Name="Companies_Id" Type="int" Nullable="true" />
+    <Property Name="Departments_Id" Type="int" Nullable="true" />
+    <Property Name="Positions_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ContactInformationSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Employee_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="LocationSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoomSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Locations_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaskSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskType" Type="tinyint" Nullable="false" />
+    <Property Name="Source" Type="tinyint" Nullable="false" />
+    <Property Name="Data" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Destination_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="InformationSystemSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ISType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventDateTime" Type="datetime" Nullable="false" />
+    <Property Name="TaskState" Type="tinyint" Nullable="false" />
+    <Property Name="Task_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Positions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="AspNetRoles_Id" />
+      <PropertyRef Name="AspNetUsers_Id" />
+    </Key>
+    <Property Name="AspNetRoles_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="AspNetUsers_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="SimpleIM_Model.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="SimpleIM_Model.Store.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="SimpleIM_Model.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="SimpleIM_Model.Store.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LocationsEmployees">
+    <End Role="Locations" Type="SimpleIM_Model.Store.LocationSet" Multiplicity="1" />
+    <End Role="Employees" Type="SimpleIM_Model.Store.EmployeeSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Locations_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeesRooms">
+    <End Role="Employees" Type="SimpleIM_Model.Store.EmployeeSet" Multiplicity="*" />
+    <End Role="Rooms" Type="SimpleIM_Model.Store.RoomSet" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Rooms_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LocationsRooms">
+    <End Role="Locations" Type="SimpleIM_Model.Store.LocationSet" Multiplicity="1" />
+    <End Role="Rooms" Type="SimpleIM_Model.Store.RoomSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rooms">
+        <PropertyRef Name="Locations_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompaniesEmployees">
+    <End Role="Companies" Type="SimpleIM_Model.Store.CompanySet" Multiplicity="0..1" />
+    <End Role="Employees" Type="SimpleIM_Model.Store.EmployeeSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Companies_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartmentsEmployees">
+    <End Role="Departments" Type="SimpleIM_Model.Store.DepartmentSet" Multiplicity="0..1" />
+    <End Role="Employees" Type="SimpleIM_Model.Store.EmployeeSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Departments_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeContactInformation">
+    <End Role="Employee" Type="SimpleIM_Model.Store.EmployeeSet" Multiplicity="0..1" />
+    <End Role="ContactInformation" Type="SimpleIM_Model.Store.ContactInformationSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContactInformation">
+        <PropertyRef Name="Employee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeePosition">
+    <End Role="Employee" Type="SimpleIM_Model.Store.EmployeeSet" Multiplicity="*" />
+    <End Role="Position" Type="SimpleIM_Model.Store.Positions" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Positions_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TaskEvent">
+    <End Role="Task" Type="SimpleIM_Model.Store.TaskSet" Multiplicity="0..1" />
+    <End Role="Event" Type="SimpleIM_Model.Store.EventSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="Task_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InformationSystemTask">
+    <End Role="InformationSystem" Type="SimpleIM_Model.Store.InformationSystemSet" Multiplicity="0..1" />
+    <End Role="Task" Type="SimpleIM_Model.Store.TaskSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InformationSystem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="Destination_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles_AspNetRoles">
+    <End Role="AspNetRoles" Type="SimpleIM_Model.Store.AspNetRoles" Multiplicity="1" />
+    <End Role="AspNetUserRoles" Type="SimpleIM_Model.Store.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="AspNetRoles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles_AspNetUsers">
+    <End Role="AspNetUserRoles" Type="SimpleIM_Model.Store.AspNetUserRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="SimpleIM_Model.Store.AspNetUsers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="AspNetUsers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SimpleIM_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="DepartmentSet" EntityType="SimpleIM_Model.Department" />
+          <EntitySet Name="EmployeeSet" EntityType="SimpleIM_Model.Employee" />
+          <EntitySet Name="ContactInformationSet" EntityType="SimpleIM_Model.ContactInformation" />
+          <EntitySet Name="LocationSet" EntityType="SimpleIM_Model.Location" />
+          <EntitySet Name="CompanySet" EntityType="SimpleIM_Model.Company" />
+          <AssociationSet Name="LocationsEmployees" Association="SimpleIM_Model.LocationsEmployees">
+            <End Role="Locations" EntitySet="LocationSet" />
+            <End Role="Employees" EntitySet="EmployeeSet" />
+          </AssociationSet>
+          <EntitySet Name="RoomSet" EntityType="SimpleIM_Model.Room" />
+          <AssociationSet Name="EmployeesRooms" Association="SimpleIM_Model.EmployeesRooms">
+            <End Role="Employees" EntitySet="EmployeeSet" />
+            <End Role="Rooms" EntitySet="RoomSet" />
+          </AssociationSet>
+          <AssociationSet Name="LocationsRooms" Association="SimpleIM_Model.LocationsRooms">
+            <End Role="Locations" EntitySet="LocationSet" />
+            <End Role="Rooms" EntitySet="RoomSet" />
+          </AssociationSet>
+          <EntitySet Name="TaskSet" EntityType="SimpleIM_Model.Task" />
+          <EntitySet Name="InformationSystemSet" EntityType="SimpleIM_Model.InformationSystem" />
+          <EntitySet Name="EventSet" EntityType="SimpleIM_Model.Event" />
+          <AssociationSet Name="CompaniesEmployees" Association="SimpleIM_Model.CompaniesEmployees">
+            <End Role="Companies" EntitySet="CompanySet" />
+            <End Role="Employees" EntitySet="EmployeeSet" />
+          </AssociationSet>
+          <AssociationSet Name="DepartmentsEmployees" Association="SimpleIM_Model.DepartmentsEmployees">
+            <End Role="Departments" EntitySet="DepartmentSet" />
+            <End Role="Employees" EntitySet="EmployeeSet" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeContactInformation" Association="SimpleIM_Model.EmployeeContactInformation">
+            <End Role="Employee" EntitySet="EmployeeSet" />
+            <End Role="ContactInformation" EntitySet="ContactInformationSet" />
+          </AssociationSet>
+          <EntitySet Name="Positions" EntityType="SimpleIM_Model.Position" />
+          <AssociationSet Name="EmployeePosition" Association="SimpleIM_Model.EmployeePosition">
+            <End Role="Employee" EntitySet="EmployeeSet" />
+            <End Role="Position" EntitySet="Positions" />
+          </AssociationSet>
+          <AssociationSet Name="TaskEvent" Association="SimpleIM_Model.TaskEvent">
+            <End Role="Task" EntitySet="TaskSet" />
+            <End Role="Event" EntitySet="EventSet" />
+          </AssociationSet>
+          <AssociationSet Name="InformationSystemTask" Association="SimpleIM_Model.InformationSystemTask">
+            <End Role="InformationSystem" EntitySet="InformationSystemSet" />
+            <End Role="Task" EntitySet="TaskSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentId" Type="Int32" Nullable="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Employees" Relationship="SimpleIM_Model.DepartmentsEmployees" FromRole="Departments" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Image" Type="Byte" Nullable="true" />
+          <NavigationProperty Name="Locations" Relationship="SimpleIM_Model.LocationsEmployees" FromRole="Employees" ToRole="Locations" />
+          <NavigationProperty Name="Rooms" Relationship="SimpleIM_Model.EmployeesRooms" FromRole="Employees" ToRole="Rooms" />
+          <Property Name="FName" Type="String" Nullable="false" />
+          <Property Name="SName" Type="String" Nullable="false" />
+          <Property Name="SSName" Type="String" Nullable="false" />
+          <Property Name="DateOfBirth" Type="String" Nullable="false" />
+          <NavigationProperty Name="Companies" Relationship="SimpleIM_Model.CompaniesEmployees" FromRole="Employees" ToRole="Companies" />
+          <NavigationProperty Name="Departments" Relationship="SimpleIM_Model.DepartmentsEmployees" FromRole="Employees" ToRole="Departments" />
+          <NavigationProperty Name="ContactInformation" Relationship="SimpleIM_Model.EmployeeContactInformation" FromRole="Employee" ToRole="ContactInformation" />
+          <NavigationProperty Name="Positions" Relationship="SimpleIM_Model.EmployeePosition" FromRole="Employee" ToRole="Position" />
+        </EntityType>
+        <EntityType Name="ContactInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="SimpleIM_Model.ContactInformationTypes" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Employee" Relationship="SimpleIM_Model.EmployeeContactInformation" FromRole="ContactInformation" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Employees" Relationship="SimpleIM_Model.LocationsEmployees" FromRole="Locations" ToRole="Employees" />
+          <NavigationProperty Name="Rooms" Relationship="SimpleIM_Model.LocationsRooms" FromRole="Locations" ToRole="Rooms" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Employees" Relationship="SimpleIM_Model.CompaniesEmployees" FromRole="Companies" ToRole="Employees" />
+        </EntityType>
+        <Association Name="LocationsEmployees">
+          <End Type="SimpleIM_Model.Location" Role="Locations" Multiplicity="1" />
+          <End Type="SimpleIM_Model.Employee" Role="Employees" Multiplicity="0..1" />
+        </Association>
+        <EnumType Name="ContactInformationTypes" UnderlyingType="Byte">
+          <Member Name="PhoneNumber" />
+          <Member Name="Email" />
+          <Member Name="SkypeId" />
+          <Member Name="ExtensionNumber" />
+        </EnumType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Employees" Relationship="SimpleIM_Model.EmployeesRooms" FromRole="Rooms" ToRole="Employees" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Locations" Relationship="SimpleIM_Model.LocationsRooms" FromRole="Rooms" ToRole="Locations" />
+        </EntityType>
+        <Association Name="EmployeesRooms">
+          <End Type="SimpleIM_Model.Employee" Role="Employees" Multiplicity="*" />
+          <End Type="SimpleIM_Model.Room" Role="Rooms" Multiplicity="0..1" />
+        </Association>
+        <Association Name="LocationsRooms">
+          <End Type="SimpleIM_Model.Location" Role="Locations" Multiplicity="1" />
+          <End Type="SimpleIM_Model.Room" Role="Rooms" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskType" Type="SimpleIM_Model.TaskTypes" Nullable="false" />
+          <Property Name="Source" Type="SimpleIM_Model.ISTypes" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="SimpleIM_Model.TaskEvent" FromRole="Task" ToRole="Event" />
+          <Property Name="Data" Type="String" Nullable="false" />
+          <NavigationProperty Name="Destination" Relationship="SimpleIM_Model.InformationSystemTask" FromRole="Task" ToRole="InformationSystem" />
+        </EntityType>
+        <EnumType Name="TaskTypes" UnderlyingType="Byte" >
+          <Member Name="CreateUser" />
+          <Member Name="DeleteUser" />
+          <Member Name="DenyAccess" />
+          <Member Name="PermitAccess" />
+          <Member Name="BlockUser" />
+        </EnumType>
+        <EntityType Name="InformationSystem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="ISType" Type="String" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <NavigationProperty Name="Task" Relationship="SimpleIM_Model.InformationSystemTask" FromRole="InformationSystem" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Task" Relationship="SimpleIM_Model.TaskEvent" FromRole="Event" ToRole="Task" />
+          <Property Name="EventDateTime" Type="DateTime" Nullable="false" />
+          <Property Name="TaskState" Type="SimpleIM_Model.TaskStates" Nullable="false" />
+        </EntityType>
+        <Association Name="CompaniesEmployees">
+          <End Type="SimpleIM_Model.Company" Role="Companies" Multiplicity="0..1" />
+          <End Type="SimpleIM_Model.Employee" Role="Employees" Multiplicity="*" />
+        </Association>
+        <Association Name="DepartmentsEmployees">
+          <End Type="SimpleIM_Model.Department" Role="Departments" Multiplicity="0..1" />
+          <End Type="SimpleIM_Model.Employee" Role="Employees" Multiplicity="*" />
+        </Association>
+        <Association Name="EmployeeContactInformation">
+          <End Type="SimpleIM_Model.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="SimpleIM_Model.ContactInformation" Role="ContactInformation" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="SimpleIM_Model.EmployeePosition" FromRole="Position" ToRole="Employee" />
+        </EntityType>
+        <Association Name="EmployeePosition">
+          <End Type="SimpleIM_Model.Employee" Role="Employee" Multiplicity="*" />
+          <End Type="SimpleIM_Model.Position" Role="Position" Multiplicity="0..1" />
+        </Association>
+        <Association Name="TaskEvent">
+          <End Type="SimpleIM_Model.Task" Role="Task" Multiplicity="0..1" />
+          <End Type="SimpleIM_Model.Event" Role="Event" Multiplicity="*" />
+        </Association>
+        <EnumType Name="ISTypes" UnderlyingType="Byte" >
+          <Member Name="DirectoryService" Value="100" />
+          <Member Name="Mailserver" Value="101" />
+          <Member Name="Mailrelay" Value="102" />
+          <Member Name="ERP" Value="103" />
+          <Member Name="Docflow" Value="104" />
+          <Member Name="Fileserver" Value="105" />
+          <Member Name="SimpleIMPortal" Value="1" />
+        </EnumType>
+        <EnumType Name="TaskStates" UnderlyingType="Byte">
+          <Member Name="Created" />
+          <Member Name="InProcessing" />
+          <Member Name="Completed" />
+          <Member Name="Terminated" />
+        </EnumType>
+        <Association Name="InformationSystemTask">
+          <End Type="SimpleIM_Model.InformationSystem" Role="InformationSystem" Multiplicity="0..1" />
+          <End Type="SimpleIM_Model.Task" Role="Task" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SimpleIM_ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.C__MigrationHistory)">
+        <MappingFragment StoreEntitySet="C__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.AspNetRoles)">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.AspNetUserClaims)">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.AspNetUserLogins)">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.AspNetUsers)">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.Department)">
+        <MappingFragment StoreEntitySet="DepartmentSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.Employee)">
+        <MappingFragment StoreEntitySet="EmployeeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="SName" ColumnName="SName" />
+          <ScalarProperty Name="SSName" ColumnName="SSName" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactInformationSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.ContactInformation)">
+        <MappingFragment StoreEntitySet="ContactInformationSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.Location)">
+        <MappingFragment StoreEntitySet="LocationSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanySet">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.Company)">
+        <MappingFragment StoreEntitySet="CompanySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.Room)">
+        <MappingFragment StoreEntitySet="RoomSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.Task)">
+        <MappingFragment StoreEntitySet="TaskSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TaskType" ColumnName="TaskType" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InformationSystemSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.InformationSystem)">
+        <MappingFragment StoreEntitySet="InformationSystemSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ISType" ColumnName="ISType" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.Event)">
+        <MappingFragment StoreEntitySet="EventSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EventDateTime" ColumnName="EventDateTime" />
+          <ScalarProperty Name="TaskState" ColumnName="TaskState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="IsTypeOf(SimpleIM_Model.Position)">
+        <MappingFragment StoreEntitySet="Positions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="SimpleIM_Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LocationsEmployees" TypeName="SimpleIM_Model.LocationsEmployees" StoreEntitySet="EmployeeSet">
+      <EndProperty Name="Locations">
+        <ScalarProperty Name="Id" ColumnName="Locations_Id" />
+      </EndProperty>
+      <EndProperty Name="Employees">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployeesRooms" TypeName="SimpleIM_Model.EmployeesRooms" StoreEntitySet="EmployeeSet">
+      <EndProperty Name="Rooms">
+        <ScalarProperty Name="Id" ColumnName="Rooms_Id" />
+      </EndProperty>
+      <EndProperty Name="Employees">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Rooms_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LocationsRooms" TypeName="SimpleIM_Model.LocationsRooms" StoreEntitySet="RoomSet">
+      <EndProperty Name="Locations">
+        <ScalarProperty Name="Id" ColumnName="Locations_Id" />
+      </EndProperty>
+      <EndProperty Name="Rooms">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CompaniesEmployees" TypeName="SimpleIM_Model.CompaniesEmployees" StoreEntitySet="EmployeeSet">
+      <EndProperty Name="Companies">
+        <ScalarProperty Name="Id" ColumnName="Companies_Id" />
+      </EndProperty>
+      <EndProperty Name="Employees">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Companies_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DepartmentsEmployees" TypeName="SimpleIM_Model.DepartmentsEmployees" StoreEntitySet="EmployeeSet">
+      <EndProperty Name="Departments">
+        <ScalarProperty Name="Id" ColumnName="Departments_Id" />
+      </EndProperty>
+      <EndProperty Name="Employees">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Departments_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployeeContactInformation" TypeName="SimpleIM_Model.EmployeeContactInformation" StoreEntitySet="ContactInformationSet">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Employee_Id" />
+      </EndProperty>
+      <EndProperty Name="ContactInformation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Employee_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployeePosition" TypeName="SimpleIM_Model.EmployeePosition" StoreEntitySet="EmployeeSet">
+      <EndProperty Name="Position">
+        <ScalarProperty Name="Id" ColumnName="Positions_Id" />
+      </EndProperty>
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Positions_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TaskEvent" TypeName="SimpleIM_Model.TaskEvent" StoreEntitySet="EventSet">
+      <EndProperty Name="Task">
+        <ScalarProperty Name="Id" ColumnName="Task_Id" />
+      </EndProperty>
+      <EndProperty Name="Event">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Task_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="InformationSystemTask" TypeName="SimpleIM_Model.InformationSystemTask" StoreEntitySet="TaskSet">
+      <EndProperty Name="InformationSystem">
+        <ScalarProperty Name="Id" ColumnName="Destination_Id" />
+      </EndProperty>
+      <EndProperty Name="Task">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Destination_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

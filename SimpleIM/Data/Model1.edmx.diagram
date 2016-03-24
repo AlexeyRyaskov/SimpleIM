@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5bc693f97ab3482aacb964d0e420bec2" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="SimpleIM_Model.C__MigrationHistory" Width="1.5" PointX="0.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SimpleIM_Model.AspNetRoles" Width="1.5" PointX="0.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SimpleIM_Model.AspNetUserClaims" Width="1.5" PointX="5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SimpleIM_Model.AspNetUserLogins" Width="1.5" PointX="5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SimpleIM_Model.AspNetUsers" Width="1.5" PointX="2.625" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="SimpleIM_Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SimpleIM_Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SimpleIM_Model.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SimpleIM_Model.Department" Width="1.5" PointX="12" PointY="7.25" />
+        <EntityTypeShape EntityType="SimpleIM_Model.Employee" Width="1.5" PointX="9" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SimpleIM_Model.ContactInformation" Width="1.5" PointX="5.875" PointY="5.75" />
+        <EntityTypeShape EntityType="SimpleIM_Model.Location" Width="1.5" PointX="5.875" PointY="8.75" />
+        <EntityTypeShape EntityType="SimpleIM_Model.Company" Width="1.5" PointX="9" PointY="4.375" />
+        <AssociationConnector Association="SimpleIM_Model.LocationsEmployees" />
+        <EntityTypeShape EntityType="SimpleIM_Model.Room" Width="1.5" PointX="12" PointY="9.75" />
+        <AssociationConnector Association="SimpleIM_Model.EmployeesRooms" />
+        <AssociationConnector Association="SimpleIM_Model.LocationsRooms" />
+        <EntityTypeShape EntityType="SimpleIM_Model.Task" Width="1.5" PointX="17.625" PointY="8.25" />
+        <EntityTypeShape EntityType="SimpleIM_Model.InformationSystem" Width="1.875" PointX="16" PointY="5.5" />
+        <EntityTypeShape EntityType="SimpleIM_Model.Event" Width="1.5" PointX="20.25" PointY="8.375" />
+        <AssociationConnector Association="SimpleIM_Model.CompaniesEmployees" />
+        <AssociationConnector Association="SimpleIM_Model.DepartmentsEmployees" />
+        <AssociationConnector Association="SimpleIM_Model.EmployeeContactInformation" />
+        <EntityTypeShape EntityType="SimpleIM_Model.Position" Width="1.5" PointX="12" PointY="4.875" />
+        <AssociationConnector Association="SimpleIM_Model.EmployeePosition" />
+        <AssociationConnector Association="SimpleIM_Model.TaskEvent" />
+        <AssociationConnector Association="SimpleIM_Model.InformationSystemTask" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
