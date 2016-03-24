@@ -10,3 +10,5 @@ namespace SimpleIM.Data
         public int SelectedCompany { get; set; } // used for select and dropdown controls
     }
 }
+
+//kcjh skdjfh aksdjvh asklhv 
