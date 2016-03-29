@@ -84,7 +84,7 @@ function updatePostfix() {
     // run('postmap ' + recipients)
 };
 
-//API module
+//API module.
 app.get('/api', function (req, res) {
     loadEmpl();
     res.send('Запустилось успешно');
