@@ -13,10 +13,10 @@ namespace SimpleIM.Data
     
     public enum TaskTypes : byte
     {
-        CreateUser = 0,
-        DeleteUser = 1,
-        DenyAccess = 2,
-        PermitAccess = 3,
-        BlockUser = 4
+        CreateUser = 1,
+        DeleteUser = 2,
+        DenyAccess = 3,
+        PermitAccess = 4,
+        BlockUser = 5
     }
 }

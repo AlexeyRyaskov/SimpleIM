@@ -13,9 +13,9 @@ namespace SimpleIM.Data
     
     public enum TaskStates : byte
     {
-        Created = 0,
-        InProcessing = 1,
-        Completed = 2,
-        Terminated = 3
+        Created = 1,
+        InProcessing = 2,
+        Completed = 3,
+        Terminated = 4
     }
 }
