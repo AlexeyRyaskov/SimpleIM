@@ -1,0 +1,15 @@
+{
+  "name": "connectors",
+  "version": "1.0.0",
+  "description": "Read data from DB or API and run scripts/commands on target systems (Linux mail relay, Active Directory, MS Exchange)",
+  "main": "mail.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ilya Uvarov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
