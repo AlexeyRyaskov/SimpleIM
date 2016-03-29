@@ -639,11 +639,11 @@
           <NavigationProperty Name="Destination" Relationship="SimpleIM_Model.InformationSystemTask" FromRole="Task" ToRole="InformationSystem" />
         </EntityType>
         <EnumType Name="TaskTypes" UnderlyingType="Byte" >
-          <Member Name="CreateUser" />
-          <Member Name="DeleteUser" />
-          <Member Name="DenyAccess" />
-          <Member Name="PermitAccess" />
-          <Member Name="BlockUser" />
+          <Member Name="CreateUser" Value="1" />
+          <Member Name="DeleteUser" Value="2" />
+          <Member Name="DenyAccess" Value="3" />
+          <Member Name="PermitAccess" Value="4" />
+          <Member Name="BlockUser" Value="5" />
         </EnumType>
         <EntityType Name="InformationSystem">
           <Key>
@@ -702,10 +702,10 @@
           <Member Name="SimpleIMPortal" Value="1" />
         </EnumType>
         <EnumType Name="TaskStates" UnderlyingType="Byte">
-          <Member Name="Created" />
-          <Member Name="InProcessing" />
-          <Member Name="Completed" />
-          <Member Name="Terminated" />
+          <Member Name="Created" Value="1" />
+          <Member Name="InProcessing" Value="2" />
+          <Member Name="Completed" Value="3" />
+          <Member Name="Terminated" Value="4" />
         </EnumType>
         <Association Name="InformationSystemTask">
           <End Type="SimpleIM_Model.InformationSystem" Role="InformationSystem" Multiplicity="0..1" />

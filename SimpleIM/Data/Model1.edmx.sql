@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/23/2016 20:04:14
+-- Date Created: 03/25/2016 15:40:28
 -- Generated from EDMX file: D:\Документы\Visual Studio 2013\Projects\SimpleIM\SimpleIM\Data\Model1.edmx
 -- --------------------------------------------------
 
@@ -49,6 +49,12 @@ IF OBJECT_ID(N'[dbo].[FK_EmployeeContactInformation]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_EmployeePosition]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[EmployeeSet] DROP CONSTRAINT [FK_EmployeePosition];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TaskEvent]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EventSet] DROP CONSTRAINT [FK_TaskEvent];
+GO
+IF OBJECT_ID(N'[dbo].[FK_InformationSystemTask]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TaskSet] DROP CONSTRAINT [FK_InformationSystemTask];
 GO
 
 -- --------------------------------------------------
