@@ -10,14 +10,13 @@ var sys = require('util')
 var exec = require('child_process').exec;
 var fs = require('fs');
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-
 var server = '@rh'
 var user = 'il'
 var cmd1 = 'ps'
 var recipients = "./recipients"
 var url = "http://simpleim.satel.local/api/values/102";
 var arrRecipients = [];
-var result = false;
+var result;
 var empl = [];
 
 function puts(error, stdout, stderr) {console.log(stdout)}
@@ -47,11 +46,9 @@ function makeChanges() {
         if (arrRecipients.indexOf(email) == -1) {
           run('echo ' + email + '\t\\#' + name + ' >> ' + recipients)
           updatePostfix();
-          console.log('Дописали: ' + email);
-          result = true;
+          console.log('Добавлен: ' + email);
         } else {
-          console.log('Уже есть: ' + email);
-          result = false;
+          console.log('Пользователь уже есть: ' + email);
         }
     }
 };
@@ -84,17 +81,14 @@ function updatePostfix() {
     // run('postmap ' + recipients)
 };
 
+// function response(text) {
+//     res.send(text)
+// }
+
 //API module.
 app.get('/api', function (req, res) {
     loadEmpl();
     res.send('Запустилось успешно');
-    // var check = loadEmpl();
-    // // console.log(check);
-    // if (check) {
-    //     res.send('Запустилось успешно');
-    // } else {
-    //     res.send('Ошибка');
-    // }
 });
 
 app.listen(1337, function(){
