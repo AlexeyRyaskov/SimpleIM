@@ -15,11 +15,11 @@
         <AssociationConnector Association="SimpleIM_Model.AspNetUserRoles" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SimpleIM_Model.Department" Width="1.5" PointX="12" PointY="7.25" />
         <EntityTypeShape EntityType="SimpleIM_Model.Employee" Width="1.5" PointX="9" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SimpleIM_Model.ContactInformation" Width="1.5" PointX="5.875" PointY="5.75" />
-        <EntityTypeShape EntityType="SimpleIM_Model.Location" Width="1.5" PointX="5.875" PointY="8.75" />
+        <EntityTypeShape EntityType="SimpleIM_Model.ContactInformation" Width="1.75" PointX="5.875" PointY="5.75" />
+        <EntityTypeShape EntityType="SimpleIM_Model.Location" Width="1.75" PointX="5.875" PointY="9.375" />
         <EntityTypeShape EntityType="SimpleIM_Model.Company" Width="1.5" PointX="9" PointY="4.375" />
         <AssociationConnector Association="SimpleIM_Model.LocationsEmployees" />
-        <EntityTypeShape EntityType="SimpleIM_Model.Room" Width="1.5" PointX="12" PointY="9.75" />
+        <EntityTypeShape EntityType="SimpleIM_Model.Room" Width="1.5" PointX="12" PointY="10" />
         <AssociationConnector Association="SimpleIM_Model.EmployeesRooms" />
         <AssociationConnector Association="SimpleIM_Model.LocationsRooms" />
         <EntityTypeShape EntityType="SimpleIM_Model.Task" Width="1.5" PointX="17.625" PointY="8.25" />
