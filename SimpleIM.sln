@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleIM", "SimpleIM\SimpleIM.csproj", "{0EA513F3-C761-42C7-BFE2-260ABD861653}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleIM.Tests", "SimpleIM.Tests\SimpleIM.Tests.csproj", "{3019493B-2CF0-4686-B880-734A7BCB7BCF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{0D786941-7988-4459-86B4-49432CD9CFCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{3019493B-2CF0-4686-B880-734A7BCB7BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3019493B-2CF0-4686-B880-734A7BCB7BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3019493B-2CF0-4686-B880-734A7BCB7BCF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0D786941-7988-4459-86B4-49432CD9CFCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D786941-7988-4459-86B4-49432CD9CFCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D786941-7988-4459-86B4-49432CD9CFCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D786941-7988-4459-86B4-49432CD9CFCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
