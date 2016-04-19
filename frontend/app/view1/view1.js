@@ -12,15 +12,15 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-// .controller('View1Ctrl', ['$scope', '$http',
-//     function($scope, $http) {
-//         $http.jsonp('http://jsonplaceholder.typicode.com/posts/2/?callback=JSON_CALLBACK').success(function(data) {
-//           $scope.companies = data;
-//       });
-//   }
-// ]);
+.controller('View1Ctrl', ['$scope', '$http',
+    function($scope, $http) {
+        $http.jsonp('http://jsonplaceholder.typicode.com/posts/2/?callback=JSON_CALLBACK').success(function(data) {
+          $scope.companies = data;
+      });
+  }
+]);
 
-.controller('View1Ctrl',
-    function($scope) {
-        $scope.companies = companiesData;
-});
+// .controller('View1Ctrl',
+//     function($scope) {
+//         $scope.companies = companiesData;
+// });
