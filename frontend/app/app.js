@@ -6,7 +6,7 @@ var app = angular.module('myApp', [
   'myApp.view1',
   'myApp.view2',
   'myApp.version',
-  'angularUtils.directives.dirPagination'
+  'angularUtils.directives.dirPagination',
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
